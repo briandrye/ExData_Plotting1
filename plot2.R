@@ -10,11 +10,10 @@ dateStrings <- as.Date(hpcData$Date, format="%d/%m/%Y")
 hpcDataTwoDays <- hpcData[dateStrings == "2007-02-01" | dateStrings == "2007-02-02", ]
 
 ## make line graph
+png(file = "plot2.png")
 with(hpcDataTwoDays, plot(strptime(paste(hpcDataTwoDays$Date, hpcDataTwoDays$Time), "%d/%m/%Y %H:%M:%S"), 
                           Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)"))
 
-## Copy my plot to a PNG file
-dev.copy(png, file = "plot2.png")
 dev.off()
 
 ## check timing 

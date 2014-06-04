@@ -10,10 +10,8 @@ dateStrings <- as.Date(hpcData$Date, format="%d/%m/%Y")
 hpcDataTwoDays <- hpcData[dateStrings == "2007-02-01" | dateStrings == "2007-02-02", ]
 
 ## make histogram
+png(file = "plot1.png")
 hist(hpcDataTwoDays$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
-
-## Copy my plot to a PNG file
-dev.copy(png, file = "plot1.png")
 dev.off()
 
 ## check timing 
